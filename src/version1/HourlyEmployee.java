@@ -66,8 +66,19 @@ public class HourlyEmployee {
         }
 
 
+    void displayHourlyEmployee() {
 
+            System.out.println("ID: " + empID);
+            System.out.println("Name: " +empName);
+            System.out.println("Total hours: " + totalHoursWorked);
+            System.out.println("Rate: " + ratePerHour);
 
+        }
+
+@Override
+        public String toString() {
+        return String.format("Name: %s\n ID: %d\n Working Hours: %d\n Rate per hour: %d Total Salary: %lf\n", empName, empID, totalHoursWorked, ratePerHour, computeSalary());
+        }
     }
 
 
