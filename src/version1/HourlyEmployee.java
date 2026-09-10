@@ -1,25 +1,30 @@
 package version1;
 
 public class HourlyEmployee {
-
     private int empID;
     private String empName;
     private float totalHoursWorked;
-    double ratePerHour;
+    private double ratePerHour;
 
-    HourlyEmployee (){
+    public HourlyEmployee() {
         this.empID = 0;
         this.empName = "N/A";
-        this.totalHoursWorked = 0;
-        this.ratePerHour = 0;
+        this.totalHoursWorked = 0.0f;
+        this.ratePerHour = 0.0;
+    }
 
+    public HourlyEmployee(int empID, String empName) {
+        this.empID = empID;
+        this.empName = empName;
+        this.totalHoursWorked = 0.0f;
+        this.ratePerHour = 0.0;
     }
 
     public HourlyEmployee(int empID, String empName, float totalHoursWorked, double ratePerHour) {
         this.empID = empID;
         this.empName = empName;
-        this.totalHoursWorked = totalHoursWorked;
-        this.ratePerHour = ratePerHour;
+        setTotalHoursWorked(totalHoursWorked);
+        setRatePerHour(ratePerHour);
     }
 
     public int getEmpID() {
@@ -65,22 +70,14 @@ public class HourlyEmployee {
             return (otSalary + salary);
         }
 
-
     void displayHourlyEmployee() {
-
-            System.out.println("ID: " + empID);
-            System.out.println("Name: " +empName);
-            System.out.println("Total hours: " + totalHoursWorked);
-            System.out.println("Rate: " + ratePerHour);
-
+            System.out.printf("ID: %d | Name: %s | Hours: %.2f | Rate: ₱%.2f/hr\n", empID, empName, totalHoursWorked, ratePerHour);
         }
 
-@Override
-        public String toString() {
-        return String.format("Name: %s\n ID: %d\n Working Hours: %d\n Rate per hour: %d Total Salary: %lf\n", empName, empID, totalHoursWorked, ratePerHour, computeSalary());
-        }
     }
 
-
+    @Override
+    public String toString() {
+        return String.format("Name: %s\n ID: %d\n Working Hours: %d\n Rate per hour: %d Total Salary: %.2f\n", empName, empID, totalHoursWorked, ratePerHour, computeSalary());
+    }
 }
-
