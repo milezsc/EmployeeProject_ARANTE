@@ -73,7 +73,7 @@ public class BasePlusCommissionEmployee {
     }
     @Override
     public String toString(){
-        return String.format("BasePlusCommissionEmployee [ID: %d | Name: %s | Total Sale: ₱%.2f | Base Salary: ₱%.2f\n]", empID, empName, totalSale, baseSalary, computeSalary());
+        return String.format("BasePlusCommissionEmployee [ID: %d Name: %s Total Sale: ₱%.2f Base Salary: ₱%.2f]", empID, empName, totalSale, baseSalary, computeSalary());
     }
 
 }

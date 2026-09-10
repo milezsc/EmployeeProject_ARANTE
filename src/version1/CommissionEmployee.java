@@ -60,7 +60,6 @@ public class CommissionEmployee {
 
     @Override
     public String toString() {
-        return String.format("CommissionEmployee [ID: %d, Name: %s, Total Sale: ₱%.2f, Commission Salary: ₱%.2f]",
-                empID, empName, totalSale, computeSalary());
+        return String.format("CommissionEmployee [ID: %d, Name: %s, Total Sale: ₱%.2f, Commission Salary: ₱%.2f]", empID, empName, totalSale, computeSalary());
     }
 }
