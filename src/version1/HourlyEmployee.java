@@ -59,21 +59,17 @@ public class HourlyEmployee {
         this.ratePerHour = ratePerHour;
     }
 
-    public double computeSalary () {
-        //5 days 8 hours = 40 hours
-
-        double salary = totalHoursWorked * ratePerHour;
-        double otSalary = (totalHoursWorked - 40 * ratePerHour * 1.5);
-        if(totalHoursWorked <= 40) {
-            return salary;
+    public double computeSalary() {
+        if (totalHoursWorked <= 40) {
+            return totalHoursWorked * ratePerHour;
         } else {
-            return (otSalary + salary);
+            double regularPay = 40 * ratePerHour;
+            double otSalary = (totalHoursWorked - 40) * (ratePerHour * 1.5);
+            return regularPay + otSalary;
         }
-
-    void displayHourlyEmployee() {
-            System.out.printf("ID: %d | Name: %s | Hours: %.2f | Rate: ₱%.2f/hr\n", empID, empName, totalHoursWorked, ratePerHour);
-        }
-
+    }
+    public void displayHourlyEmployee() {
+        System.out.printf("ID: %d | Name: %s | Hours: %.2f | Rate: ₱%.2f/hr\n", empID, empName, totalHoursWorked, ratePerHour);
     }
 
     @Override
