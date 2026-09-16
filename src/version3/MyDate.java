@@ -1,6 +1,8 @@
-package version2;
+package version3;
 
-public class MyDate {
+import java.util.Objects;
+
+public class MyDate implements Cloneable {
     private int day;
     private int month;
     private int year;
@@ -40,5 +42,27 @@ public class MyDate {
     public String toString() {
         String[] months = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         return String.format("%02d %s %04d", day, months[month], year);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        MyDate myDate = (MyDate) obj;
+        return day == myDate.day && month == myDate.month && year == myDate.year;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(day, month, year);
+    }
+
+    @Override
+    public MyDate clone() {
+        try {
+            return (MyDate) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
